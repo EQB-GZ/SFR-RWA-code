@@ -7,7 +7,7 @@ def rwa_calculation(df_input_data, lgd_gen_floor, CMHC_lgd, CMHC_pd):
     based on various regulatory and business rules. It processes raw data, applies 
     adjustments, and computes RWA values for different insured and uninsured loan 
     categories. The function also generates summary tables and outputs detailed 
-    results for further analysis.
+    results for further analysis. 
     Parameters:
         df_input_data (pd.DataFrame): The raw input data containing loan-level 
             information, including PD, LGD, EAD, and other attributes.
@@ -28,6 +28,8 @@ def rwa_calculation(df_input_data, lgd_gen_floor, CMHC_lgd, CMHC_pd):
     Notes:
         - The function applies different LGD and PD adjustments based on the 
           insured class of the loans (e.g., CMHC, Sagen, CG, Uninsured).
+        - CMHC parameters (pd, lgd) also apply to the backstop portion of loans 
+          insured by Private Mortgage Insurers (PMI). #20250415 Joseph added for clarification
         - Regulatory floors and maturity adjustments are applied to ensure 
           compliance with CAR 2023 guidelines.
         - The function uses both retail and corporate risk weight formulas 
